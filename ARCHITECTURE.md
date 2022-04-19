@@ -100,10 +100,10 @@ The `Player Prefab` field inside of Boss Room's `NetworkManager` is populated wi
 
 * PersistentPlayer: a `NetworkObject` that will not be destroyed between scenes
 
-####CharSelect Scene
+#### CharSelect Scene
 Inside `CharSelect` scene, clients select from 8 possible avatar classes, and that selection is stored inside PersistentPlayer's `NetworkAvatarGuidState`.
 
-####BossRoom Scene
+#### BossRoom Scene
 Inside `BossRoom` scene, `ServerBossRoomState` spawns a `PlayerAvatar` per PersistentPlayer present. This `PlayerAvatar` prefab instance, that is owned by the corresponding connected client, is destroyed by Netcode when a scene load occurs (either to `PostGame` scene, or back to `MainMenu` scene), or through client disconnection.
 
 `ClientAvatarGuidHandler`, a `NetworkBehaviour` component residing on the `PlayerAvatar` prefab instance will fetch the validated avatar GUID from `NetworkAvatarGuidState`, and spawn a local, non-networked graphics GameObject corresponding to the avatar GUID. This GameObject is childed to PlayerAvatar's `PlayerGraphics` child GameObject.
